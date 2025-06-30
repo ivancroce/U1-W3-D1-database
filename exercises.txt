@@ -10,7 +10,7 @@ _____________________________________________________________________________
 
 3.
 
-SELECT COUNT(*) AS invoice_number_vat_20 FROM public.invoices WHERE vat='20.00'
+SELECT COUNT(*) AS invoice_number_vat_20 FROM public.invoices WHERE vat=20.00
 _____________________________________________________________________________
 
 4.
@@ -20,16 +20,16 @@ _____________________________________________________________________________
 
 5.
 
-SELECT inv, cust FROM public.invoices AS inv JOIN public.customers AS cust ON inv.customer_id = cust.customer_id WHERE inv.amount < 1000_____________________________________________________________________________
+SELECT * FROM public.invoices AS inv JOIN public.customers AS cust ON inv.customer_id = cust.customer_id WHERE inv.amount < 1000_____________________________________________________________________________
 
 6.
 
-
+SELECT inv.invoice_id, inv.amount, inv.vat, inv.invoice_date, supp.name AS supplier_name FROM invoices AS inv JOIN suppliers AS supp ON inv.supplier_id = supp.supplier_id
 _____________________________________________________________________________
 
 7.
 
-
+SELECT EXTRACT(YEAR FROM invoice_date) AS year,	COUNT (*) AS total_invoices FROM invoices WHERE vat=20.00 GROUP BY year
 _____________________________________________________________________________
 
 8.
