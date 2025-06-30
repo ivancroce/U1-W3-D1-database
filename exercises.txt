@@ -1,27 +1,26 @@
 1.
 
-
+SELECT * FROM public.customers WHERE first_name='Mario'
 _____________________________________________________________________________
 
 2.
 
-
+SELECT first_name, last_name FROM public.customers WHERE birth_year=1982
 _____________________________________________________________________________
 
 3.
 
-
+SELECT COUNT(*) AS invoice_number_vat_20 FROM public.invoices WHERE vat='20.00'
 _____________________________________________________________________________
 
 4.
 
-
+SELECT * FROM public.products WHERE EXTRACT(YEAR FROM activation_date) = 2017 AND (in_production = true OR in_commerce = true)
 _____________________________________________________________________________
 
 5.
 
-
-_____________________________________________________________________________
+SELECT inv, cust FROM public.invoices AS inv JOIN public.customers AS cust ON inv.customer_id = cust.customer_id WHERE inv.amount < 1000_____________________________________________________________________________
 
 6.
 
